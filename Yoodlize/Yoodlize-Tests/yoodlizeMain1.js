@@ -1,20 +1,27 @@
 var yoodlizePageObjects = {}
 var yoodlizelogin = (pageObject, email, password, item, startDate, endDate) => {
     pageObject
-
-    .click('@inputEmail')
-    .setValue('@inputEmail', email)
-    .click('@inputPassword')
-    .setValue('@inputPassword', password)
-    .click('@submitBtn')
-    .click('@inputText')
-    .setValue('@inputText', item)
-    .click('@clickTitle')
-    .click('@startDate')
-    .setValue('@startDate', startDate)
-    .click('@endDate')
-    .setValue('@endDate', endDate)
-    .click('@btnRequest')
+        .click('@yoodlizelogin')
+        .waitForElementVisible('@inputEmail')
+        .click('@inputEmail')
+        .setValue('@inputEmail', email)
+        .click('@inputPassword')
+        .setValue('@inputPassword', password)
+        .click('@submitBtn')
+        .waitForElementNotPresent('@inputEmail')
+    //     .api.pause(15000)
+    // pageObject
+        .waitForElementVisible('@inputText')
+    //     .click('@inputText')
+        .setValue('@inputText', item)
+        .waitForElementVisible('@clickTitle')
+        .click('@clickTitle')
+        .waitForElementVisible('@startDate')
+        .click('@startDate')
+        .setValue('@startDate', startDate)
+        .click('@endDate')
+        .setValue('@endDate', endDate)
+        .click('@btnRequest')
 
 }
 
@@ -30,12 +37,12 @@ module.exports = {
     },
 
     'Login and Renting an item': browser => {
-        yoodlizelogin(yoodlizePageObjects, 'cristian.gomessoares@gmail.com', 'cristian1983', 'dog\ue007', '02/20/2019', '02/23/2019'  )
+        yoodlizelogin(yoodlizePageObjects, 'cristian.gomessoares@gmail.com', 'cristian23', 'dog\ue007', '02/20/2019', '02/23/2019')
     },
 
     // 'Login': browser => {
     //     yoodlizePageObjects
-    //         .click('@yoodlizelogin')
+    // .click('@yoodlizelogin')
 
     //     browser
     //         .click('input[name="email"]')
