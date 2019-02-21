@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites errors="0"
-            failures="0"
+            failures="1"
             tests="2">
 
   <testsuite name="yoodlizeMain"
-    errors="0" failures="0" hostname="" id="" package="yoodlizeMain" skipped="0"
-    tests="2" time="17.44" timestamp="">
+    errors="0" failures="1" hostname="" id="" package="yoodlizeMain" skipped="0"
+    tests="2" time="34.63" timestamp="">
   
-    <testcase name="userName" classname="yoodlizeMain" time="7.289" assertions="2">
+    <testcase name="userName" classname="yoodlizeMain" time="14.66" assertions="2">
 
     
 
     
     </testcase>
   
-    <testcase name="post an item" classname="yoodlizeMain" time="10.15" assertions="9">
+    <testcase name="post an item" classname="yoodlizeMain" time="19.98" assertions="10">
 
     
 
@@ -32,7 +32,10 @@
 
     
 
-    
+      <failure message="Expected element &lt;Element [name=@success]&gt; text to equal: &#34;You have successfully published your listing&#34; - expected [0;32m&#34;equal &#39;You have successfully published your listing&#39;&#34;[0m but got: [0;31m&#34;You have successfuly published your listing&#34;[0m">    at Page.postItem (C:\Users\Sarah&#39;s laptop\devmtn\Yoodlize-sQuadTests\Yoodlize\YoodlizePageObjects\ownerObjectsPage.js:51:17)
+    at Object.post an item (C:\Users\Sarah&#39;s laptop\devmtn\Yoodlize-sQuadTests\Yoodlize\YoodlizeTests\yoodlizeMain.js:17:15)</failure>
+
+    <failure message="    at Page.postItem (C:\Users\Sarah&#39;s laptop\devmtn\Yoodlize-sQuadTests\Yoodlize\YoodlizePageObjects\ownerObjectsPage.js:51:17)">    at Object.post an item (C:\Users\Sarah&#39;s laptop\devmtn\Yoodlize-sQuadTests\Yoodlize\YoodlizeTests\yoodlizeMain.js:17:15)</failure>
     </testcase>
   
 

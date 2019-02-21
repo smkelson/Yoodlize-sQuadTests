@@ -42,13 +42,17 @@ var ownerFunctions = {
         .waitForElementVisible('@coverPhoto', 5000)
         .clickText('Save & Next: Review')
         .waitForElementPresent('@liability', 5000)
-        .setValue('@liability', 'true')
-        .setValue('@terms', 'true')
-        .click('@publish')
-        .waitForElementVisible('@viewListing', 5000)
-        .click('@viewListing')
-        .expect.element('@titleDisplay').to.be.present
-    return this
+        .click('@liability')
+        .waitForElementPresent('@terms', 5000)
+        .moveToElement('@terms', 10, 10)
+        .api.mouseButtonClick(0)
+        this.click('@publish')
+        .waitForElementVisible('@success', 5000)
+        .expect.element('@success').text.to.equal('You have successfully published your listing')
+        this.clickText('View Listing')
+        .expect.element('@successListing').text.to.equal(title)
+
+        return this
     },
 
     clickText: function(text) {
@@ -99,16 +103,17 @@ module.exports = {
         photo: 'input[type="file"]',
         next6: 'button[class="sc-esjQYD XsuRc sc-ifAKCX kvYMhQ"]',
         liability: {
-        selector: '(//input[@name="terms"])[1]',
+        selector: '(//div[@class="icheckbox_minimal-blue"])[1]',
         locateStrategy: 'xpath'
         },
         terms: {
-            selector: '(//input[@name="terms"])[2]',
+            selector: '(//ins)[2]',
             locateStrategy: 'xpath'
         },
+        successListing: 'div[class="sc-jqCOkK lcWNTj sc-gqjmRU fptSCa"]',
         publish: 'button[class="sc-esjQYD XsuRc sc-ifAKCX kvYMhQ"]',
         viewListing: 'button[class="sc-esjQYD XsuRc sc-ifAKCX kvYMhQ"]',
-        titleDisplay: 'div[class="sc-jqCOkK lcWNTj sc-gqjmRU fptSCa"]',
+        success: 'div[class="sc-jqCOkK ifkAej sc-gqjmRU bQRrST"]',
         coverPhoto: {
             selector: '(//a[text()="Use as cover photo"])',
             locateStrategy: 'xpath'
